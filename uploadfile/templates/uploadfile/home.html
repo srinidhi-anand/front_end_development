@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            background-image: url("https://www.desktopbackground.org/p/2015/12/10/1055126_background-images-for-websites-collection-44_1280x800_h.jpg");
+            background-repeat :no-repeat;
+            height:100%;
+            background-position :top;
+            background-size: cover;
+            width : 100%
+        }
+        button{
+            position:relative;
+            float:right;
+            margin:30px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Welcome! click on the Instant Quote</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h1>Welcome to Files Uploader</h1>
+    <center>
+        <div class="container">
+            <button onclick="navigate()" id="upload" class="btn btn-default">Get Instant Quote</button>
+        </div>
+
+    </center>
+
+</body>
+<script>
+    function navigate(){
+        //window.open('upload_files/uploadfile/upload.html')
+        window.location.assign("upload.html");
+    }
+</script>
+</html>

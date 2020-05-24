@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .btn{
+            position : relative;
+            left : 250px;
+            margin-top : 50px;
+        }
+        form{
+            padding-top: 100px;
+        }
+        label {
+            font-family: Georgia, "Times New Roman", Times, serif;
+            font-size: 18px;
+            color: #333;
+            height: 20px;
+            width: 200px;
+            //margin-top: 10px;
+            margin-left: 10px;
+            text-align: right;
+            margin-right:15px;
+            float:left;
+        }
+        input {
+            height: 20px;
+            width: 300px;
+            border: 1px solid #000;
+            margin-top: 10px;
+        }
+        #msg{
+            margin: 40px;
+            display:none;
+            font-size: xx-large;
+            background-color : gainsboro;
+            border: 1px;
+            border-color: black;
+            border-style: solid;
+        }
+        p.success{
+            color : black;
+        }
+        p.error{
+            color : red;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Click to Upload STP files</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <h1>Upload the files here!</h1>
+    <div id="msg">
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success'%}
+                    <p class="success">{{message}}</p>
+                {% elif message.tags == 'error'%}
+                    <p class="error">{{message}}</p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+
+
+    {% load static %}
+
+    {% block content %}
+     <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+          {{ form.as_p }}
+        <button type="submit" class="btn btn-default">Upload 3D Files</button>
+      </form>
+
+
+
+
+    {% endblock %}
+
+        <script>
+            $(document).ready(function(){
+                $("#msg").css('display','block');
+            });
+        </script>
+
+        <script type="text/javascript">
+        window.setTimeout("document.getElementById('msg').style.display='none';", 2000);
+        </script>
+
+
+
+
+
+</body>
+</html>
